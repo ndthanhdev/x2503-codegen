@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json
+
+services:
+  # docker run -v $workspaceRoot/.local/kustodata:/kustodata -e ACCEPT_EULA=Y -m 4G -d -p 8080:8080 -t mcr.microsoft.com/azuredataexplorer/kustainer-linux:stable
+  kusto-emulator:
+    build:
+      context: ../../
+      dockerfile: etc/dockerfiles/kusto-emulator.Dockerfile
+    volumes:
+      - ${WORKSPACE_ROOT}/.local/kustodata:/kustodata
+    environment:
+      ACCEPT_EULA: Y
+    mem_limit: 4G
+    ports:
+      - 8080:8080

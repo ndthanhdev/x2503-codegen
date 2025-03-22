@@ -1,0 +1,22 @@
+$schema: "https://moonrepo.dev/schemas/project.json"
+
+language: python
+
+tasks:
+  start-kusto-emulator:
+    local: true
+    env:
+      WORKSPACE_ROOT: $workspaceRoot
+    script: |
+      mkdir -p $workspaceRoot/.local/kustodata
+      docker compose \
+      -f $workspaceRoot/etc/composes/dev.yml \
+      up -d --build
+  migrate-db:
+    local: true
+    script: |
+      python -m notebooks.migrate_db
+  seed-data:
+    local: true
+    script: |
+      python -m notebooks.seed_data

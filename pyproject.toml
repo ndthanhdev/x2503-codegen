@@ -1,0 +1,16 @@
+[project]
+name = "x-codegen"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "azure-kusto-data>=5.0.1",
+    "azure-kusto-ingest>=5.0.1",
+    "ipykernel>=6.29.5",
+    "kagglehub>=0.3.10",
+    "langchain-openai>=0.3.8",
+    "langgraph>=0.3.7",
+    "pydantic>=2.10.6",
+    "pydantic-settings>=2.8.1",
+]
